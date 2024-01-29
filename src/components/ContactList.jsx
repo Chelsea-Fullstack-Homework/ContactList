@@ -4,7 +4,6 @@ const dummyContacts = [
     { id: 3, name: "BB-8", phone: "888-888-8888", email: "bb8@droids.com" },
 ];
 
-import React from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import ContactRow from './ContactRow'
