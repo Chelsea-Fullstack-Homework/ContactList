@@ -6,11 +6,28 @@ const dummyContacts = [
 
 import React from 'react'
 import { useState } from 'react'
+import { useEffect } from 'react'
 import ContactRow from './ContactRow'
 
 function ContactList(){
     const [contacts, setContacts] = useState(dummyContacts);
-    console.log("Contacts: ", contacts);
+    useEffect(
+        ()=>{
+            async function fetchContacts(){
+                try{
+                    let url = 'https://fsa-jsonplaceholder-69b5c48f1259.herokuapp.com/users'
+                    let response = await fetch(url)
+                    const result = await response.json();
+                    console.log('from API: ', result);
+                    setContacts(result);
+                }catch(err){
+                    console.error(err);
+                }
+            }
+            fetchContacts();
+        }
+        ,[])
+    console.log('Contacts: ',contacts);
 
     return (
         <table>
