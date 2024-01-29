@@ -17,7 +17,6 @@ function ContactList({ setSelectedContactId }){
                     let url = 'https://fsa-jsonplaceholder-69b5c48f1259.herokuapp.com/users'
                     let response = await fetch(url)
                     const result = await response.json();
-                    console.log('from API: ', result);
                     setContacts(result);
                 }catch(err){
                     console.error(err);
@@ -26,7 +25,6 @@ function ContactList({ setSelectedContactId }){
             fetchContacts();
         }
         ,[])
-    console.log('Contacts: ',contacts);
 
     return (
         <table>
